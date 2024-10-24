@@ -203,7 +203,9 @@ We provide the detailed speed test scripts on H800 as below. Please note that si
 | 6.7B       | 4   | 1   | 1                 |
 | 13B        | 4(A100)/8(H800) | 2(A100)/1(H800) | 1                 |
 | 18B        | 4(A100)/8(H800) | 2(A100)/1(H800) | 1                 |
+
 **Traing Scripts**
+
 | Model Size | Baseline      | SDP4Bit      |
 |------------|----------------------|----------------------|
 | 1.3B       |    [link](https://github.com/jindajia/Megatron-LM/blob/jinda/final_speed_test/sample_scripts/speed/Exp1/1_3B_Baseline.sh)       |     [link](https://github.com/jindajia/Megatron-LM/blob/jinda/final_speed_test/sample_scripts/speed/Exp1/1_3B_QWG.sh)     |
