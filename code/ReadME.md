@@ -1,4 +1,4 @@
-﻿# SDP4Bit
+# SDP4Bit
 This repository is the official implement of paper **SDP4Bit: Toward 4-bit Communication Quantization in Sharded Data Parallelism for LLM Training**.
 
 ## Overview
@@ -7,7 +7,9 @@ SDP4Bit is a communication quantization strategy designed to reduce the overhead
 ## Paper Results Reproduce
 ### Preparing for Data
 In the data processing step, we followed the [data preprocessing instructions](https://github.com/NVIDIA/Megatron-LM?tab=readme-ov-file#data-preprocessing) in Megatron-LM official repository. We use the [**pile deduplicated dataset**](https://huggingface.co/datasets/EleutherAI/the_pile_deduplicated) provided by huggingface as our training baseline. For the vocabulary and merges file, we used same as gpt2 model. 
+
 **Download**
+
 ```
 from datasets import load_dataset
 train_data = load_dataset('EleutherAI/the_pile_deduplicated', split='train', num_proc=16)
@@ -15,7 +17,9 @@ train_data.to_json(os.path.join(save_path, dataset_output_name), lines=True)
 hf_hub_download(repo_id="gpt2", filename="merges.txt", local_dir=save_path)
 hf_hub_download(repo_id="gpt2", filename="vocab.json", local_dir=save_path)
 ```
+
 **Data Process**
+
 We used [preprocess script](https://github.com/NVIDIA/Megatron-LM/blob/main/tools/preprocess_data.py) in Megatron-LM repository and the dataset download in last step. 
 ```
 python preprocess_data.py \
@@ -32,6 +36,7 @@ python preprocess_data.py \
 ```
 ### Accucracy Test Results Reproduce
 ![enter image description here](https://github.com/jindajia/SDP4Bit/raw/main/Figures/accuracy_test_table.png)
+
 We set all models to run for a total of 80,000 training iterations. The learning rate was configured according to GPT-2 settings. 
 Note: For each experimental group, we used the same training configuration for the same model, with only the quantization configuration being changed to ensure a fair comparison. The model configuration and detailed sample training scripts are provided below.
 **Model Card**
@@ -188,8 +193,9 @@ TRAINING_ARGS="
 ```
 
 **Sample Training Scripts**
+
 | Model |Baseline|qWD|TLq|TLq-HS|SDP4Bit|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|
 | 125M |[link](https://github.com/jindajia/Megatron-LM/blob/jinda/final_speed_test/sample_scripts/accuracy/125M/baseline/train.sh)  |[link](https://github.com/jindajia/Megatron-LM/blob/jinda/final_speed_test/sample_scripts/accuracy/125M/quantWeightDiff/train.sh)  |[link](https://github.com/jindajia/Megatron-LM/blob/jinda/final_speed_test/sample_scripts/accuracy/125M/quantGradwithoutHT/train.sh)  |[link](https://github.com/jindajia/Megatron-LM/blob/jinda/final_speed_test/sample_scripts/accuracy/125M/quantGrad/train.sh)  |[link](https://github.com/jindajia/Megatron-LM/blob/jinda/final_speed_test/sample_scripts/accuracy/125M/quantWeightDiff_Grad/train.sh)|
 
 ### Speed Test Results Reproduce
