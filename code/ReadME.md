@@ -251,6 +251,18 @@ Belows are all quantization arguments you may use on your case.
 ### Additional Settings
 - `--no-async-tensor-model-parallel-allreduce`
     - To overlap intra and inter node all-to-all, this should be enabled to avoid setting 
+## Citation
+If you found this work useful, please consider citing:
+```
+@misc{jia2024sdp4bit4bitcommunicationquantization,
+      title={SDP4Bit: Toward 4-bit Communication Quantization in Sharded Data Parallelism for LLM Training}, 
+      author={Jinda Jia and Cong Xie and Hanlin Lu and Daoce Wang and Hao Feng and Chengming Zhang and Baixi Sun and Haibin Lin and Zhi Zhang and Xin Liu and Dingwen Tao},
+      year={2024},
+      eprint={2410.15526},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2410.15526}, 
+}
+```
 ---
 **Note:** The implementation of SDP4Bit is built upon the official [Nvidia Megatron-LM](https://github.com/NVIDIA/Megatron-LM) codebase, leveraging its optimized framework for large-scale language model training.
-
