@@ -236,12 +236,3 @@ The following applies to all files unless otherwise noted:
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =======================================================================
-Additional Third-party dependencies:
-
-This project also includes dependencies from the following third-party projects:
-
-1. Hugging Face Transformers (licensed under Apache License 2.0)
-2. Google Research BERT (licensed under Apache License 2.0)
-3. Facebook, Inc. (licensed under MIT License)
-4. Microsoft Swin-Transformer (licensed under Apache License 2.0)
-5. Microsoft Deepspeed (licensed under Apache License 2.0)
