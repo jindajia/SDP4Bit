@@ -236,9 +236,3 @@ The following applies to all files unless otherwise noted:
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =======================================================================
-Additional Third-party dependencies:
-
-This project also includes dependencies from the following third-party projects:
-
-1. Microsoft Deepspeed (licensed under Apache License 2.0)
-2. fast-hadamard-transform (licensed under BSD 3-Clause License)
